@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// import theme from './utils/theme';
+
+import { BookCard } from './components/molecules/BookCard';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Typography } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2CE080",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <ThemeProvider theme={theme}>
+     <BookCard />
+     <Typography variant='body1' color="primary.main">body1</Typography>
+     <Typography variant='body2'>body2</Typography>
+     <Typography variant='subtitle1'>subtitle1</Typography>
+     <Typography variant='subtitle2'>subtitle2</Typography>
+
+   </ThemeProvider>
   );
 }
 
